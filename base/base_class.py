@@ -6,8 +6,8 @@ class Base():
         self.driver = driver
 
     def get_current_url(self):
-       get_url = self.driver.current_url
-       print("Current url " + get_url)
+        get_url = self.driver.current_url
+        print("Current url " + get_url)
 
     def assert_word(self, word, result):
         value_word = word.text
