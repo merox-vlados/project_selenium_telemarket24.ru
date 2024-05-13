@@ -12,4 +12,4 @@ class Base():
     def assert_word(self, word, result):
         value_word = word.text
         assert value_word == result
-        print("Good value word")
+        print(f"Good value word ({value_word} == {result})")

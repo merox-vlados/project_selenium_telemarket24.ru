@@ -2,18 +2,16 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
 from pages.main_page import MainPage
+from pages.main_page_2 import MainPage2
+from utilities.driver import Driver
 
 
 def test_select_category(set_up):
 
-    path_chromedriver_d = 'D:/QA_Engineer/PyChar/resource/chromedriver.exe'
-    path_chromedriver_c = 'C:/Users/merox/Desktop/QA/resource/chromedriver.exe'
+    driver = Driver().chrome_driver()
 
-    options = webdriver.ChromeOptions()
-    options.add_experimental_option("detach", True)
-    options.page_load_strategy = 'eager'
-    chrome_service = Service(path_chromedriver_d)
-    driver = webdriver.Chrome(options=options, service=chrome_service)
+    # mp = MainPage(driver) # main_page
+    # mp.switch_category()
 
-    mp = MainPage(driver) # main_page
+    mp = MainPage2(driver)  # main_page
     mp.switch_category()

@@ -89,13 +89,20 @@ class LaptopsCatalogPage(Base):
     # Methods
 
     def select_product_1(self):
+        self.get_current_url()
+        time.sleep(2)
         self.move_slider()
+        time.sleep(2)
         self.click_manufacturer_filter()
+        time.sleep(2)
         self.click_checkbox()
         time.sleep(2)
         self.click_set_filter_button()
+        time.sleep(2)
         self.click_select_product_link()
+        time.sleep(2)
         self.assert_word(self.get_main_word(), 'Смартфон ASUS Zenfone 11 Ultra 12/256GB Blue (Синий)')
+        time.sleep(2)
 
 
 
