@@ -41,7 +41,7 @@ class OrderingPage(Base):
     main_word_main_page = '//*[@id="mm-0"]/div[2]/div[9]/section[2]/div/h1'
 
     cart_button_main_page = '//div[@id="basket"]'
-    clear_basket_button = '//*[@id="popup_basket"]/div[3]/button/span'
+    clear_basket_button = '//*[@id="popup_basket"]/div[3]/button'
 
 
     # Getters
