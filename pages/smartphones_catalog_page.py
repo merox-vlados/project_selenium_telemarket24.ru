@@ -1,6 +1,5 @@
 import time
 
-from selenium.common import TimeoutException, ElementClickInterceptedException, NoSuchElementException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -16,8 +15,6 @@ class SmartphonesCatalogPage(Base):
         self.driver = driver
 
 
-
-
     # Locators
 
     slider = '//*[@id="slider_price_6"]/div[1]/div[1]/div'
@@ -25,18 +22,7 @@ class SmartphonesCatalogPage(Base):
     checkbox = '//*[@id="arrFilter_436_2537327198-styler"]'
     set_filter_button = '//*[@id="set_filter"]'
     main_word = '//*[@id="stiky-title-panel"]/div/div[2]/h1'
-
-
-
     select_product_link = '//*[@id="bx_3966226736_blocks-91274"]/div/div[2]/div[1]/a/span'
-
-
-    product_add_cart_button = '/html/body/div[4]/div[2]/div/div/div[1]/div[3]/div/div[2]/div[2]/div[1]/div[4]/div[1]/div[1]/span[1]'
-    go_shopping_cart_button = '//*[@id="modal-product-add-cart-button"]'
-
-    banner_element = '//*[@id="popmechanic-container-80468"]/div[1]/div[1]'
-    close_banner_button = '//*[@id="popmechanic-form-80468"]/div[3]'
-
 
     # Getters
 
@@ -90,6 +76,8 @@ class SmartphonesCatalogPage(Base):
 
     def select_product_1(self):
         self.get_current_url()
+        time.sleep(2)
+        self.assert_url("https://telemarket24.ru/catalog/telefony_i_smartfony/")
         time.sleep(2)
         self.move_slider()
         time.sleep(2)

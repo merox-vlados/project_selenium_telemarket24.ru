@@ -17,8 +17,8 @@ def test_final_test_project(set_up):
     mp = MainPage(driver)  # main_page
     mp.choosing_category()
 
-    lcp = SmartphonesCatalogPage(driver) # smartphones_catalog_page
-    lcp.select_product_1()
+    scp = SmartphonesCatalogPage(driver) # smartphones_catalog_page
+    scp.select_product_1()
 
     pp = ProductPage(driver) # product_page
     pp.change_parameters_and_select_product()

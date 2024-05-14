@@ -55,6 +55,8 @@ class CartPage(Base):
     def check_order(self):
         self.get_current_url()
         time.sleep(1)
+        self.assert_url("https://telemarket24.ru/personal/cart/")
+        time.sleep(1)
         self.assert_word(self.get_main_word(),'Корзина')
         time.sleep(1)
         self.assert_word(self.get_name_product(), 'Смартфон ASUS Zenfone 11 Ultra 16/512GB Blue (Синий)')

@@ -1,6 +1,5 @@
 import time
 
-from selenium.common import TimeoutException, ElementClickInterceptedException, NoSuchElementException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -21,7 +20,6 @@ class MainPage(Base):
     menu_button = '//*[@id="mm-0"]/div[2]/header/div[2]/div/div/div[1]/div[1]'
     catalog_phone_smartphone = '//*[@id="mm-0"]/div[2]/header/div[2]/div/div/div[1]/div[2]/ul/li[1]/a/span'
     main_word = '//*[@id="catalog-page"]/div/div/div[1]/h1'
-
 
 
     # Getters
@@ -53,6 +51,18 @@ class MainPage(Base):
     # Methods
 
     def choosing_category(self):
+        self.get_current_url()
+        time.sleep(2)
+        self.click_menu_button()
+        time.sleep(2)
+        self.click_catalog_phone_smartphone()
+        time.sleep(2)
+        self.assert_word(self.get_main_word(),'Телефоны и смартфоны')
+        time.sleep(2)
+
+    def choosing_category_with_driver(self):
+        self.driver.get(self.url)
+        time.sleep()
         self.get_current_url()
         time.sleep(2)
         self.click_menu_button()

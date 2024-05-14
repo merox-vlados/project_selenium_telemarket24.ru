@@ -1,7 +1,5 @@
 import time
 
-from selenium.common import TimeoutException, ElementClickInterceptedException, NoSuchElementException
-from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -82,6 +80,8 @@ class ProductPage(Base):
     def change_parameters_and_select_product(self):
         self.get_current_url()
         time.sleep(2)
+        self.assert_url("https://telemarket24.ru/produ%D1%81ts/smartfon_asus_zenfone_11_ultra_12_256gb_blue_siniy.html")
+        time.sleep(2)
         self.click_select_color_product()
         time.sleep(2)
         self.click_select_ram_product()
@@ -95,7 +95,7 @@ class ProductPage(Base):
         self.click_set_order_button()
         time.sleep(2)
 
-    def select_product(self):
+    def select_product_with_driver(self):
         self.driver.get(self.url)
         time.sleep(2)
         self.click_add_product_cart()

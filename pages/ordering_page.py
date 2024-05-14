@@ -1,6 +1,5 @@
 import time
 
-from selenium.common import TimeoutException, ElementClickInterceptedException, NoSuchElementException
 from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -19,8 +18,6 @@ class OrderingPage(Base):
     # Locators
 
     radio_button = '//*[@id="bx-soa-region"]/div[2]/div[2]/div/div[1]/div[1]'
-    address_field = '//input[@class="bx-ui-sls-fake"]'
-    address_field_help = '//div[@class="dropdown-item bx-ui-sls-variant bx-ui-sls-variant-active"]'
     next_button_region = '//*[@id="bx-soa-region"]/div[2]/div[3]/div/a'
 
     payment_checkbox = '//*[@id="bx-soa-paysystem"]/div[2]/div[2]/div[1]/div[2]'
@@ -48,12 +45,6 @@ class OrderingPage(Base):
 
     def get_radion_button(self):
         return WebDriverWait(self.driver, 30).until(expected_conditions.element_to_be_clickable((By.XPATH, self.radio_button)))
-
-    def get_address_field(self):
-        return WebDriverWait(self.driver, 30).until(expected_conditions.element_to_be_clickable((By.XPATH, self.address_field)))
-
-    def get_address_field_help(self):
-        return WebDriverWait(self.driver, 30).until(expected_conditions.element_to_be_clickable((By.XPATH, self.address_field_help)))
 
     def get_next_button_region(self):
         return WebDriverWait(self.driver, 30).until(expected_conditions.element_to_be_clickable((By.XPATH, self.next_button_region)))
@@ -105,18 +96,6 @@ class OrderingPage(Base):
     def click_radion_button(self):
         self.get_radion_button().click()
         print("Click radio button")
-
-    def click_address_field(self):
-        self.get_address_field().clear()
-        self.get_address_field().send_keys('Санкт-Петербург')
-        self.get_address_field().send_keys(Keys.ARROW_DOWN)
-        self.get_address_field().send_keys(Keys.BACKSPACE)
-        print("Click address field")
-
-    def click_address_field_help(self):
-        self.get_address_field_help().click()
-        print("Click address field help")
-
 
     def click_next_button_region(self):
         self.get_next_button_region().click()
@@ -173,11 +152,11 @@ class OrderingPage(Base):
 
 
     def placing_order(self):
+        self.get_current_url()
+        time.sleep(2)
+        self.assert_url("https://telemarket24.ru/personal/order/")
+        time.sleep(2)
         self.click_radion_button()
-        time.sleep(2)
-        self.click_address_field()
-        time.sleep(2)
-        self.click_address_field_help()
         time.sleep(2)
         self.click_next_button_region()
         time.sleep(2)
@@ -208,7 +187,8 @@ class OrderingPage(Base):
         self.click_cart_button_main_page()
         time.sleep(2)
         self.click_clear_basket_button()
-        time.sleep(2)
+        time.sleep(3)
+        self.get_screenshot()
 
 
 

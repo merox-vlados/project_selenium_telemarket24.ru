@@ -1,6 +1,5 @@
 import time
 
-from selenium.common import TimeoutException, ElementClickInterceptedException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -43,7 +42,6 @@ class LoginPage(Base):
     def get_login_button(self):
         return WebDriverWait(self.driver, 30).until(expected_conditions.element_to_be_clickable((By.XPATH, self.login_button)))
 
-
     def get_main_word(self):
         return WebDriverWait(self.driver, 30).until(expected_conditions.element_to_be_clickable((By.XPATH, self.main_word)))
 
@@ -79,6 +77,8 @@ class LoginPage(Base):
         self.driver.maximize_window()
         time.sleep(2)
         self.get_current_url()
+        time.sleep(2)
+        self.assert_url("https://telemarket24.ru/")
         time.sleep(2)
         self.click_login_icon()
         time.sleep(2)

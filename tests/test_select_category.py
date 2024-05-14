@@ -9,8 +9,5 @@ def test_select_category(set_up):
 
     driver = Driver().chrome_driver()
 
-    # mp = MainPage(driver) # main_page
-    # mp.switch_category()
-
     mp = MainPage(driver)  # main_page
-    mp.switch_category()
+    mp.choosing_category_with_driver()

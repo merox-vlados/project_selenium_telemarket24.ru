@@ -16,17 +16,8 @@ def test_select_product(set_up):
 
     driver = Driver().chrome_driver()
 
-    # lp = LoginPage(driver)  # login_page
-    # lp.authorization()
-
-    # mp = MainPage(driver)  # main_page
-    # mp.switch_category()
-    #
-    # lcp = LaptopsCatalogPage(driver) # laptops_catalog_page
-    # lcp.select_product_1()
-
     pp = ProductPage(driver) # product_page
-    pp.select_product()
+    pp.select_product_with_driver()
 
     cp = CartPage(driver) # cart_page
     cp.check_order()
