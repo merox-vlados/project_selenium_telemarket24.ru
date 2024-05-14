@@ -15,7 +15,7 @@ class Driver:
         options = webdriver.ChromeOptions()
         options.add_experimental_option("detach", True)
         options.page_load_strategy = 'eager'
-        chrome_service = Service(path_chromedriver_c)
+        chrome_service = Service(path_chromedriver_d)
         driver = webdriver.Chrome(options=options, service=chrome_service)
 
         return driver

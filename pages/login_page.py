@@ -75,7 +75,9 @@ class LoginPage(Base):
 
     def authorization(self):
         self.driver.get(self.url)
-        # self.driver.maximize_window()
+        time.sleep(2)
+        self.driver.maximize_window()
+        time.sleep(2)
         self.get_current_url()
         time.sleep(2)
         self.click_login_icon()

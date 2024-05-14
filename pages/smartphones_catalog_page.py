@@ -9,7 +9,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from base.base_class import Base
 
 
-class LaptopsCatalogPage(Base):
+class SmartphonesCatalogPage(Base):
 
     def __init__(self, driver):
         super().__init__(driver)
