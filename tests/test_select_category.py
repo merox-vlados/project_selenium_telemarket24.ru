@@ -7,6 +7,8 @@ from utilities.driver import Driver
 
 def test_select_category(set_up):
 
+    """Test select product category"""
+
     driver = Driver().chrome_driver()
 
     mp = MainPage(driver)  # main_page

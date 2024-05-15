@@ -9,6 +9,8 @@ class Driver:
 
     def chrome_driver(self):
 
+        """Method install and return chrome driver"""
+
         path_chromedriver_d = 'D:/QA_Engineer/PyChar/resource/chromedriver.exe'
         path_chromedriver_c = 'C:/Users/merox/Desktop/QA/resource/chromedriver.exe'
 
@@ -16,7 +18,7 @@ class Driver:
         options.add_argument('--ignore-certificate-errors')
         options.add_experimental_option("detach", True)
         options.page_load_strategy = 'eager'
-        chrome_service = Service(path_chromedriver_c)
+        chrome_service = Service(path_chromedriver_d)
 
         capabilities = options.to_capabilities()
         capabilities['acceptInsecureCerts'] = True

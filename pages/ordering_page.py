@@ -17,6 +17,8 @@ class OrderingPage(Base):
 
     # Locators
 
+    """Creating locator variables"""
+
     radio_button = '//*[@id="bx-soa-region"]/div[2]/div[2]/div/div[1]/div[1]'
     next_button_region = '//*[@id="bx-soa-region"]/div[2]/div[3]/div/a'
 
@@ -42,6 +44,8 @@ class OrderingPage(Base):
 
 
     # Getters
+
+    """Get value locators"""
 
     def get_radion_button(self):
         return WebDriverWait(self.driver, 30).until(expected_conditions.element_to_be_clickable((By.XPATH, self.radio_button)))
@@ -92,6 +96,8 @@ class OrderingPage(Base):
         return WebDriverWait(self.driver, 30).until(expected_conditions.element_to_be_clickable((By.XPATH, self.clear_basket_button)))
 
     # Actions
+
+    """Action with locators"""
 
     def click_radion_button(self):
         self.get_radion_button().click()
@@ -152,6 +158,9 @@ class OrderingPage(Base):
 
 
     def placing_order(self):
+
+        """Method placing an order"""
+
         self.get_current_url()
         time.sleep(2)
         self.assert_url("https://telemarket24.ru/personal/order/")

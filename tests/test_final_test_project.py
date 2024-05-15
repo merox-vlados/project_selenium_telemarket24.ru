@@ -9,6 +9,8 @@ from utilities.driver import Driver
 
 def test_final_test_project(set_up):
 
+    """Test business way from authorization to ordering"""
+
     driver = Driver().chrome_driver()
 
     lp = LoginPage(driver)  # login_page

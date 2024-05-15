@@ -16,6 +16,8 @@ class CartPage(Base):
 
     # Locators
 
+    """Creating locator variables"""
+
     main_word = '//*[@id="mm-0"]/div[2]/div[10]/h1'
     name_product = '//span[@data-entity="basket-item-name"]'
     product_price = '//td[@class="basket-items-list-item-price"]/div/div/span'
@@ -26,6 +28,7 @@ class CartPage(Base):
 
     # Getters
 
+    """Get value locators"""
 
     def get_main_word(self):
         return WebDriverWait(self.driver, 30).until(expected_conditions.element_to_be_clickable((By.XPATH, self.main_word)))
@@ -45,6 +48,8 @@ class CartPage(Base):
 
     # Actions
 
+    """Action with locators"""
+
     def click_place_order_button(self):
         self.get_place_order_button().click()
         print("Click place order button")
@@ -53,6 +58,9 @@ class CartPage(Base):
     # Methods
 
     def check_order(self):
+
+        """Method check order"""
+
         self.get_current_url()
         time.sleep(1)
         self.assert_url("https://telemarket24.ru/personal/cart/")

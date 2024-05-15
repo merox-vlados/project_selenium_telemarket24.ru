@@ -3,6 +3,6 @@ import pytest
 
 @pytest.fixture()
 def set_up():
-    print("Start test")
+    print("\nStart test")
     yield
-    print("Finish test")
+    print("\nFinish test")

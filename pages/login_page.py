@@ -9,6 +9,8 @@ from base.base_class import Base
 
 class LoginPage(Base):
 
+    """Page user authorization """
+
     url = "https://telemarket24.ru/"
 
     def __init__(self, driver):
@@ -16,6 +18,8 @@ class LoginPage(Base):
         self.driver = driver
 
     # Locators
+
+    """Creating locator variables"""
 
     login_icon = '//*[@id="account-menu-toggler"]/span'
     login_link = '//*[@id="account-menu-toggler"]/span/span/a'
@@ -26,6 +30,8 @@ class LoginPage(Base):
 
 
     # Getters
+
+    """Get value locators"""
 
     def get_login_icon(self):
         return WebDriverWait(self.driver, 30).until(expected_conditions.element_to_be_clickable((By.XPATH, self.login_icon)))
@@ -48,6 +54,8 @@ class LoginPage(Base):
 
 
     # Actions
+
+    """Action with locators"""
 
     def click_login_icon(self):
         self.get_login_icon().click()
@@ -72,6 +80,9 @@ class LoginPage(Base):
     # Methods
 
     def authorization(self):
+
+        """Method authorization user"""
+
         self.driver.get(self.url)
         time.sleep(2)
         self.driver.maximize_window()

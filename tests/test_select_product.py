@@ -14,6 +14,8 @@ from utilities.driver import Driver
 
 def test_select_product(set_up):
 
+    """Test select product and transit cart page and ordering page"""
+
     driver = Driver().chrome_driver()
 
     pp = ProductPage(driver) # product_page

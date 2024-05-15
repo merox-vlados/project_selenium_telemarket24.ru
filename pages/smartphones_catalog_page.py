@@ -10,12 +10,16 @@ from base.base_class import Base
 
 class SmartphonesCatalogPage(Base):
 
+    """Page catalogs phone and smartphones"""
+
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
 
 
     # Locators
+
+    """Creating locator variables"""
 
     slider = '//*[@id="slider_price_6"]/div[1]/div[1]/div'
     manufacturer_filter = '//*[@id="marka"]/div'
@@ -25,6 +29,8 @@ class SmartphonesCatalogPage(Base):
     select_product_link = '//*[@id="bx_3966226736_blocks-91274"]/div/div[2]/div[1]/a/span'
 
     # Getters
+
+    """Get value locators"""
 
     def get_slider(self):
         return WebDriverWait(self.driver, 30).until(expected_conditions.element_to_be_clickable((By.XPATH, self.slider)))
@@ -46,6 +52,8 @@ class SmartphonesCatalogPage(Base):
 
 
     # Actions
+
+    """Action with locators"""
 
     def move_slider(self):
         slider = self.get_slider()
@@ -75,6 +83,9 @@ class SmartphonesCatalogPage(Base):
     # Methods
 
     def select_product_1(self):
+
+        """Method filter product page and chose product # 1 """
+
         self.get_current_url()
         time.sleep(2)
         self.assert_url("https://telemarket24.ru/catalog/telefony_i_smartfony/")

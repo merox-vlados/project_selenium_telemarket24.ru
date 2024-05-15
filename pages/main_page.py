@@ -10,6 +10,8 @@ from base.base_class import Base
 
 class MainPage(Base):
 
+    """Main page of site """
+
     url = 'https://telemarket24.ru/'
     def __init__(self, driver):
         super().__init__(driver)
@@ -17,12 +19,16 @@ class MainPage(Base):
 
     # Locators
 
+    """Creating locator variables"""
+
     menu_button = '//*[@id="mm-0"]/div[2]/header/div[2]/div/div/div[1]/div[1]'
     catalog_phone_smartphone = '//*[@id="mm-0"]/div[2]/header/div[2]/div/div/div[1]/div[2]/ul/li[1]/a/span'
     main_word = '//*[@id="catalog-page"]/div/div/div[1]/h1'
 
 
     # Getters
+
+    """Get value locators"""
 
     def get_menu_button(self):
         return WebDriverWait(self.driver, 30).until(expected_conditions.visibility_of_element_located((By.XPATH, self.menu_button)))
@@ -36,6 +42,8 @@ class MainPage(Base):
 
 
     # Actions
+
+    """Action with locators"""
 
     def click_menu_button(self):
         action = ActionChains(self.driver)
@@ -51,6 +59,9 @@ class MainPage(Base):
     # Methods
 
     def choosing_category(self):
+
+        """Method chose category"""
+
         self.get_current_url()
         time.sleep(2)
         self.click_menu_button()

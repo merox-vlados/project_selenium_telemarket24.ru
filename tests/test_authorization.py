@@ -6,6 +6,8 @@ from utilities.driver import Driver
 
 def test_authorization(set_up):
 
+    """Test user authorization"""
+
     driver = Driver().chrome_driver()
 
     lp = LoginPage(driver) # login_page

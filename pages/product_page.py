@@ -16,18 +16,21 @@ class ProductPage(Base):
 
     # Locators
 
+    """Creating locator variables"""
+
     select_color_product = '//*[@id="bx_117848907_91274"]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/a[1]/img'
     select_ram_product = '//*[@id="bx_117848907_91273"]/div[2]/div[1]/div[2]/div[3]/div[1]/div[2]/a[2]/div'
     value_ram_product = '//*[@id="bx_117848907_91275"]/div[2]/div[1]/div[2]/div[3]/div[1]/div[2]/a[2]/div'
     main_word = '//*[@id="bx_117848907_91275"]/div[2]/div[1]/div[2]/div[3]/div[2]/dl/dd[5]'
     add_product_cart = '//button[@id="bx_117848907_91275_buy_link"]'
-    cart_button = '//div[@id="basket"]'
+    cart_button = '//a[@id="bxdinamic_bitronic2_basket_string"]'
     set_order_button = '//*[@id="popup_basket"]/div[3]/div/a'
 
 
 
     # Getters
 
+    """Get value locators"""
 
     def get_color_product(self):
         return WebDriverWait(self.driver, 30).until(expected_conditions.element_to_be_clickable((By.XPATH, self.select_color_product)))
@@ -54,6 +57,8 @@ class ProductPage(Base):
 
     # Actions
 
+    """Action with locators"""
+
     def click_select_color_product(self):
         self.get_color_product().click()
         print("Click color product")
@@ -78,6 +83,9 @@ class ProductPage(Base):
     # Methods
 
     def change_parameters_and_select_product(self):
+
+        """Method change and chose product # 1 on product page"""
+
         self.get_current_url()
         time.sleep(2)
         self.assert_url("https://telemarket24.ru/produ%D1%81ts/smartfon_asus_zenfone_11_ultra_12_256gb_blue_siniy.html")
