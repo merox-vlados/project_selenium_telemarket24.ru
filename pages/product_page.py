@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 from base.base_class import Base
+from utilities.logger import Logger
 
 
 class ProductPage(Base):
@@ -86,6 +87,8 @@ class ProductPage(Base):
 
         """Method change and chose product # 1 on product page"""
 
+        Logger.add_start_step(method='change_parameters_and_select_product')
+
         self.get_current_url()
         time.sleep(2)
         self.assert_url("https://telemarket24.ru/produ%D1%81ts/smartfon_asus_zenfone_11_ultra_12_256gb_blue_siniy.html")
@@ -103,7 +106,12 @@ class ProductPage(Base):
         self.click_set_order_button()
         time.sleep(2)
 
+        Logger.add_end_step(url=self.get_current_url(), method='change_parameters_and_select_product')
+
     def select_product_with_driver(self):
+
+        Logger.add_start_step(method='select_product_with_driver')
+
         self.driver.get(self.url)
         time.sleep(2)
         self.click_add_product_cart()
@@ -112,6 +120,8 @@ class ProductPage(Base):
         time.sleep(2)
         self.click_set_order_button()
         time.sleep(2)
+
+        Logger.add_end_step(url=self.get_current_url(), method='select_product_with_driver')
 
 
 

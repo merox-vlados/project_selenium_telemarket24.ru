@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 from base.base_class import Base
+from utilities.logger import Logger
 
 
 class OrderingPage(Base):
@@ -161,6 +162,8 @@ class OrderingPage(Base):
 
         """Method placing an order"""
 
+        Logger.add_start_step(method='placing_order')
+
         self.get_current_url()
         time.sleep(2)
         self.assert_url("https://telemarket24.ru/personal/order/")
@@ -198,6 +201,8 @@ class OrderingPage(Base):
         self.click_clear_basket_button()
         time.sleep(3)
         self.get_screenshot()
+
+        Logger.add_end_step(url=self.get_current_url(), method='placing_order')
 
 
 

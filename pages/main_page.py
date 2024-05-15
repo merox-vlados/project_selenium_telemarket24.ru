@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 from base.base_class import Base
+from utilities.logger import Logger
 
 
 class MainPage(Base):
@@ -62,6 +63,8 @@ class MainPage(Base):
 
         """Method chose category"""
 
+        Logger.add_start_step(method='choosing_category')
+
         self.get_current_url()
         time.sleep(2)
         self.click_menu_button()
@@ -71,7 +74,12 @@ class MainPage(Base):
         self.assert_word(self.get_main_word(),'Телефоны и смартфоны')
         time.sleep(2)
 
+        Logger.add_end_step(url=self.get_current_url(), method='choosing_category')
+
     def choosing_category_with_driver(self):
+
+        Logger.add_start_step(method='choosing_category_with_driver')
+
         self.driver.get(self.url)
         time.sleep()
         self.get_current_url()
@@ -82,4 +90,6 @@ class MainPage(Base):
         time.sleep(2)
         self.assert_word(self.get_main_word(),'Телефоны и смартфоны')
         time.sleep(2)
+
+        Logger.add_end_step(url=self.get_current_url(), method='choosing_category_with_driver')
 

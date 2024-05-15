@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 from base.base_class import Base
+from utilities.logger import Logger
 
 
 class LoginPage(Base):
@@ -83,6 +84,8 @@ class LoginPage(Base):
 
         """Method authorization user"""
 
+        Logger.add_start_step(method='authorization')
+
         self.driver.get(self.url)
         time.sleep(2)
         self.driver.maximize_window()
@@ -105,4 +108,4 @@ class LoginPage(Base):
         time.sleep(2)
         self.assert_word(self.get_main_word(), 'Мой кабинет')
 
-
+        Logger.add_end_step(url=self.get_current_url(), method='authorization')

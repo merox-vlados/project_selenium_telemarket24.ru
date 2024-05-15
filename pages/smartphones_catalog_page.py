@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 from base.base_class import Base
+from utilities.logger import Logger
 
 
 class SmartphonesCatalogPage(Base):
@@ -86,6 +87,8 @@ class SmartphonesCatalogPage(Base):
 
         """Method filter product page and chose product # 1 """
 
+        Logger.add_start_step(method='select_product_1')
+
         self.get_current_url()
         time.sleep(2)
         self.assert_url("https://telemarket24.ru/catalog/telefony_i_smartfony/")
@@ -102,6 +105,8 @@ class SmartphonesCatalogPage(Base):
         time.sleep(2)
         self.assert_word(self.get_main_word(), 'Смартфон ASUS Zenfone 11 Ultra 12/256GB Blue (Синий)')
         time.sleep(2)
+
+        Logger.add_end_step(url=self.get_current_url(), method='select_product_1')
 
 
 

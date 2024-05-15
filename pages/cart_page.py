@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 from base.base_class import Base
+from utilities.logger import Logger
 
 
 class CartPage(Base):
@@ -61,6 +62,8 @@ class CartPage(Base):
 
         """Method check order"""
 
+        Logger.add_start_step(method='check_order')
+
         self.get_current_url()
         time.sleep(1)
         self.assert_url("https://telemarket24.ru/personal/cart/")
@@ -75,6 +78,8 @@ class CartPage(Base):
         time.sleep(1)
         self.click_place_order_button()
         time.sleep(2)
+
+        Logger.add_end_step(url=self.get_current_url(), method='check_order')
 
 
 
