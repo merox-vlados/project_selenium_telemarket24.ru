@@ -1,5 +1,6 @@
 import time
 
+import allure
 from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -160,49 +161,51 @@ class OrderingPage(Base):
 
     def placing_order(self):
 
-        """Method placing an order"""
+        with allure.step('Placing order'):
 
-        Logger.add_start_step(method='placing_order')
+            """Method placing an order"""
 
-        self.get_current_url()
-        time.sleep(2)
-        self.assert_url("https://telemarket24.ru/personal/order/")
-        time.sleep(2)
-        self.click_radion_button()
-        time.sleep(2)
-        self.click_next_button_region()
-        time.sleep(2)
-        self.click_payment_checkbox()
-        time.sleep(2)
-        self.click_next_button_payment()
-        time.sleep(2)
-        self.click_delivery_button()
-        time.sleep(2)
-        self.click_next_button_delivery()
-        time.sleep(2)
-        self.click_field_client_name()
-        time.sleep(2)
-        self.click_field_email()
-        time.sleep(2)
-        self.click_field_phone_number()
-        time.sleep(2)
-        self.click_next_button_client_info()
-        time.sleep(2)
-        self.assert_word(self.get_name_product(), 'Смартфон ASUS Zenfone 11 Ultra 16/512GB Blue (Синий)')
-        time.sleep(2)
-        self.assert_word(self.get_price_product(), '95 490')
-        time.sleep(2)
-        self.click_back_main_page_button()
-        time.sleep(2)
-        self.assert_word(self.get_main_word_main_page(), 'Интернет-магазин техники и электроники Телемаркет24')
-        time.sleep(2)
-        self.click_cart_button_main_page()
-        time.sleep(2)
-        self.click_clear_basket_button()
-        time.sleep(3)
-        self.get_screenshot()
+            Logger.add_start_step(method='placing_order')
 
-        Logger.add_end_step(url=self.get_current_url(), method='placing_order')
+            self.get_current_url()
+            time.sleep(2)
+            self.assert_url("https://telemarket24.ru/personal/order/")
+            time.sleep(2)
+            self.click_radion_button()
+            time.sleep(2)
+            self.click_next_button_region()
+            time.sleep(2)
+            self.click_payment_checkbox()
+            time.sleep(2)
+            self.click_next_button_payment()
+            time.sleep(2)
+            self.click_delivery_button()
+            time.sleep(2)
+            self.click_next_button_delivery()
+            time.sleep(2)
+            self.click_field_client_name()
+            time.sleep(2)
+            self.click_field_email()
+            time.sleep(2)
+            self.click_field_phone_number()
+            time.sleep(2)
+            self.click_next_button_client_info()
+            time.sleep(2)
+            self.assert_word(self.get_name_product(), 'Смартфон ASUS Zenfone 11 Ultra 16/512GB Blue (Синий)')
+            time.sleep(2)
+            self.assert_word(self.get_price_product(), '95 490')
+            time.sleep(2)
+            self.click_back_main_page_button()
+            time.sleep(2)
+            self.assert_word(self.get_main_word_main_page(), 'Интернет-магазин техники и электроники Телемаркет24')
+            time.sleep(2)
+            self.click_cart_button_main_page()
+            time.sleep(2)
+            self.click_clear_basket_button()
+            time.sleep(3)
+            self.get_screenshot()
+
+            Logger.add_end_step(url=self.get_current_url(), method='placing_order')
 
 
 

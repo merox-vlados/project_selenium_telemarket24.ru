@@ -1,5 +1,5 @@
 import time
-
+import allure
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -61,35 +61,39 @@ class MainPage(Base):
 
     def choosing_category(self):
 
-        """Method chose category"""
+        with allure.step("Choosing category"):
 
-        Logger.add_start_step(method='choosing_category')
+            """Method chose category"""
 
-        self.get_current_url()
-        time.sleep(2)
-        self.click_menu_button()
-        time.sleep(2)
-        self.click_catalog_phone_smartphone()
-        time.sleep(2)
-        self.assert_word(self.get_main_word(),'Телефоны и смартфоны')
-        time.sleep(2)
+            Logger.add_start_step(method='choosing_category')
 
-        Logger.add_end_step(url=self.get_current_url(), method='choosing_category')
+            self.get_current_url()
+            time.sleep(2)
+            self.click_menu_button()
+            time.sleep(2)
+            self.click_catalog_phone_smartphone()
+            time.sleep(2)
+            self.assert_word(self.get_main_word(),'Телефоны и смартфоны')
+            time.sleep(2)
+
+            Logger.add_end_step(url=self.get_current_url(), method='choosing_category')
 
     def choosing_category_with_driver(self):
 
-        Logger.add_start_step(method='choosing_category_with_driver')
+        with allure.step("Choosing category with driver"):
 
-        self.driver.get(self.url)
-        time.sleep()
-        self.get_current_url()
-        time.sleep(2)
-        self.click_menu_button()
-        time.sleep(2)
-        self.click_catalog_phone_smartphone()
-        time.sleep(2)
-        self.assert_word(self.get_main_word(),'Телефоны и смартфоны')
-        time.sleep(2)
+            Logger.add_start_step(method='choosing_category_with_driver')
 
-        Logger.add_end_step(url=self.get_current_url(), method='choosing_category_with_driver')
+            self.driver.get(self.url)
+            time.sleep()
+            self.get_current_url()
+            time.sleep(2)
+            self.click_menu_button()
+            time.sleep(2)
+            self.click_catalog_phone_smartphone()
+            time.sleep(2)
+            self.assert_word(self.get_main_word(),'Телефоны и смартфоны')
+            time.sleep(2)
+
+            Logger.add_end_step(url=self.get_current_url(), method='choosing_category_with_driver')
 

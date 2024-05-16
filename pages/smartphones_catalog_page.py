@@ -1,5 +1,6 @@
 import time
 
+import allure
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -85,28 +86,30 @@ class SmartphonesCatalogPage(Base):
 
     def select_product_1(self):
 
-        """Method filter product page and chose product # 1 """
+        with allure.step('select_product_1'):
 
-        Logger.add_start_step(method='select_product_1')
+            """Method filter product page and chose product # 1 """
 
-        self.get_current_url()
-        time.sleep(2)
-        self.assert_url("https://telemarket24.ru/catalog/telefony_i_smartfony/")
-        time.sleep(2)
-        self.move_slider()
-        time.sleep(2)
-        self.click_manufacturer_filter()
-        time.sleep(2)
-        self.click_checkbox()
-        time.sleep(2)
-        self.click_set_filter_button()
-        time.sleep(2)
-        self.click_select_product_link()
-        time.sleep(2)
-        self.assert_word(self.get_main_word(), 'Смартфон ASUS Zenfone 11 Ultra 12/256GB Blue (Синий)')
-        time.sleep(2)
+            Logger.add_start_step(method='select_product_1')
 
-        Logger.add_end_step(url=self.get_current_url(), method='select_product_1')
+            self.get_current_url()
+            time.sleep(2)
+            self.assert_url("https://telemarket24.ru/catalog/telefony_i_smartfony/")
+            time.sleep(2)
+            self.move_slider()
+            time.sleep(2)
+            self.click_manufacturer_filter()
+            time.sleep(2)
+            self.click_checkbox()
+            time.sleep(2)
+            self.click_set_filter_button()
+            time.sleep(2)
+            self.click_select_product_link()
+            time.sleep(2)
+            self.assert_word(self.get_main_word(), 'Смартфон ASUS Zenfone 11 Ultra 12/256GB Blue (Синий)')
+            time.sleep(2)
+
+            Logger.add_end_step(url=self.get_current_url(), method='select_product_1')
 
 
 

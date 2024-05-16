@@ -1,3 +1,5 @@
+import allure
+
 from pages.cart_page import CartPage
 from pages.ordering_page import OrderingPage
 from pages.smartphones_catalog_page import SmartphonesCatalogPage
@@ -7,6 +9,7 @@ from pages.product_page import ProductPage
 from utilities.driver import Driver
 
 
+@allure.description("Test final test project")
 def test_final_test_project(set_up):
 
     """Test business way from authorization to ordering"""

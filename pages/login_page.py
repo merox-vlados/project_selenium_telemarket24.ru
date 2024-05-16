@@ -1,4 +1,5 @@
 import time
+import allure
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -81,31 +82,32 @@ class LoginPage(Base):
     # Methods
 
     def authorization(self):
+        with allure.step("Authorization"):
 
-        """Method authorization user"""
+            """Method authorization user"""
 
-        Logger.add_start_step(method='authorization')
+            Logger.add_start_step(method='authorization')
 
-        self.driver.get(self.url)
-        time.sleep(2)
-        self.driver.maximize_window()
-        time.sleep(2)
-        self.get_current_url()
-        time.sleep(2)
-        self.assert_url("https://telemarket24.ru/")
-        time.sleep(2)
-        self.click_login_icon()
-        time.sleep(2)
-        self.click_login_link()
-        time.sleep(2)
-        self.input_user_name('qa.godenko@gmail.com')
-        time.sleep(2)
-        self.input_user_password('QAtelemarket24.ru')
-        time.sleep(2)
-        self.click_login_button()
-        time.sleep(2)
-        self.click_login_icon()
-        time.sleep(2)
-        self.assert_word(self.get_main_word(), 'Мой кабинет')
+            self.driver.get(self.url)
+            time.sleep(2)
+            self.driver.maximize_window()
+            time.sleep(2)
+            self.get_current_url()
+            time.sleep(2)
+            self.assert_url("https://telemarket24.ru/")
+            time.sleep(2)
+            self.click_login_icon()
+            time.sleep(2)
+            self.click_login_link()
+            time.sleep(2)
+            self.input_user_name('qa.godenko@gmail.com')
+            time.sleep(2)
+            self.input_user_password('QAtelemarket24.ru')
+            time.sleep(2)
+            self.click_login_button()
+            time.sleep(2)
+            self.click_login_icon()
+            time.sleep(2)
+            self.assert_word(self.get_main_word(), 'Мой кабинет')
 
-        Logger.add_end_step(url=self.get_current_url(), method='authorization')
+            Logger.add_end_step(url=self.get_current_url(), method='authorization')

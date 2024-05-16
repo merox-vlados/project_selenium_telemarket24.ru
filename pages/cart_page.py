@@ -1,5 +1,6 @@
 import time
 
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -60,26 +61,28 @@ class CartPage(Base):
 
     def check_order(self):
 
-        """Method check order"""
+        with allure.step("Check order"):
 
-        Logger.add_start_step(method='check_order')
+            """Method check order"""
 
-        self.get_current_url()
-        time.sleep(1)
-        self.assert_url("https://telemarket24.ru/personal/cart/")
-        time.sleep(1)
-        self.assert_word(self.get_main_word(),'Корзина')
-        time.sleep(1)
-        self.assert_word(self.get_name_product(), 'Смартфон ASUS Zenfone 11 Ultra 16/512GB Blue (Синий)')
-        time.sleep(1)
-        self.assert_word(self.get_product_price(), '95 490 ₽')
-        time.sleep(1)
-        self.assert_word(self.get_total_price(), '95 490 ₽')
-        time.sleep(1)
-        self.click_place_order_button()
-        time.sleep(2)
+            Logger.add_start_step(method='check_order')
 
-        Logger.add_end_step(url=self.get_current_url(), method='check_order')
+            self.get_current_url()
+            time.sleep(1)
+            self.assert_url("https://telemarket24.ru/personal/cart/")
+            time.sleep(1)
+            self.assert_word(self.get_main_word(),'Корзина')
+            time.sleep(1)
+            self.assert_word(self.get_name_product(), 'Смартфон ASUS Zenfone 11 Ultra 16/512GB Blue (Синий)')
+            time.sleep(1)
+            self.assert_word(self.get_product_price(), '95 490 ₽')
+            time.sleep(1)
+            self.assert_word(self.get_total_price(), '95 490 ₽')
+            time.sleep(1)
+            self.click_place_order_button()
+            time.sleep(2)
+
+            Logger.add_end_step(url=self.get_current_url(), method='check_order')
 
 
 

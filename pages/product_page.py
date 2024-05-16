@@ -1,5 +1,6 @@
 import time
 
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -85,43 +86,47 @@ class ProductPage(Base):
 
     def change_parameters_and_select_product(self):
 
-        """Method change and chose product # 1 on product page"""
+        with allure.step("Change parameters and select product"):
 
-        Logger.add_start_step(method='change_parameters_and_select_product')
+            """Method change and chose product # 1 on product page"""
 
-        self.get_current_url()
-        time.sleep(2)
-        self.assert_url("https://telemarket24.ru/produ%D1%81ts/smartfon_asus_zenfone_11_ultra_12_256gb_blue_siniy.html")
-        time.sleep(2)
-        self.click_select_color_product()
-        time.sleep(2)
-        self.click_select_ram_product()
-        time.sleep(2)
-        self.assert_word(self.get_main_word(), self.get_value_ram_product().text)
-        time.sleep(2)
-        self.click_add_product_cart()
-        time.sleep(2)
-        self.click_cart_button()
-        time.sleep(2)
-        self.click_set_order_button()
-        time.sleep(2)
+            Logger.add_start_step(method='change_parameters_and_select_product')
 
-        Logger.add_end_step(url=self.get_current_url(), method='change_parameters_and_select_product')
+            self.get_current_url()
+            time.sleep(2)
+            self.assert_url("https://telemarket24.ru/produ%D1%81ts/smartfon_asus_zenfone_11_ultra_12_256gb_blue_siniy.html")
+            time.sleep(2)
+            self.click_select_color_product()
+            time.sleep(2)
+            self.click_select_ram_product()
+            time.sleep(2)
+            self.assert_word(self.get_main_word(), self.get_value_ram_product().text)
+            time.sleep(2)
+            self.click_add_product_cart()
+            time.sleep(2)
+            self.click_cart_button()
+            time.sleep(2)
+            self.click_set_order_button()
+            time.sleep(2)
+
+            Logger.add_end_step(url=self.get_current_url(), method='change_parameters_and_select_product')
 
     def select_product_with_driver(self):
 
-        Logger.add_start_step(method='select_product_with_driver')
+        with allure.step("Select product with driver"):
 
-        self.driver.get(self.url)
-        time.sleep(2)
-        self.click_add_product_cart()
-        time.sleep(2)
-        self.click_cart_button()
-        time.sleep(2)
-        self.click_set_order_button()
-        time.sleep(2)
+            Logger.add_start_step(method='select_product_with_driver')
 
-        Logger.add_end_step(url=self.get_current_url(), method='select_product_with_driver')
+            self.driver.get(self.url)
+            time.sleep(2)
+            self.click_add_product_cart()
+            time.sleep(2)
+            self.click_cart_button()
+            time.sleep(2)
+            self.click_set_order_button()
+            time.sleep(2)
+
+            Logger.add_end_step(url=self.get_current_url(), method='select_product_with_driver')
 
 
 
